@@ -3,8 +3,7 @@ services:
   - docker
 
 before_install:
-  - gem install cocoapods -v '0.32.1'
   - docker build -t maainul/docker-react -f Dockerfile.dev .
 
 script:
-  - travis_wait docker run maainul/docker-react npm run test -- --coverage
+  - docker run maainul/docker-react npm run test -- --coverage
